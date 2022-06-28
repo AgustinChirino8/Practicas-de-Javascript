@@ -114,10 +114,10 @@ while(instruccion){
     }else if(instruccion == opcion2 ){
         alert("TURNO ANULADO SATISFACTORIAMENTE");
     }else if(instruccion == opcion3){
-        let cuota=prompt("INGRESE MONTO");
+        let cuota = parseFloat(prompt("Ingrese monto"));
         let instruccion2=prompt("INGRESE CUOTAS A SIMULAR: 1) 3 CUOTAS  ; 2)  6 CUOTAS   ;  3) 9  CUOTAS   ;   4) 12  CUOTAS");
         if(instruccion2==cuota1){
-           alert("holi");
+           alert();
         }
         break;
     }
