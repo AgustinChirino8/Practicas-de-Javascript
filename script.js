@@ -92,35 +92,63 @@ if(edad <=8 && edad >= 1 ){
 }
 */
 
-let nombre =prompt("ingrese nombre");
-let instruccion =prompt("POR FAVOR,SELECCIONE LA OPCION A REALIZAR:         1)   SOLICITUD DE TURNOS;"  + ""  +   "       2)   CANCELACION DE TURNOS;" +""+  "      3)   SIMULACION DE PLAZO FIJO;"  + "" + "      4)SALIR;");
+
+let nombre =prompt(" BIENVENIDO A HOUSEBANK     Por Favor  Ingrese Nombre y Apellido");
+
+let instruccion =parseFloat(prompt("POR FAVOR SR.   "      + nombre +        "     SELECCIONE LA OPCION A REALIZAR:         1)   SOLICITUD DE TURNOS;"  + ""  +   "       2)   CANCELACION DE TURNOS;" +""+  "      3)   SIMULACION DE PAGO EN CUOTAS;"  + "" + "      4)SALIR;"));
+
+// OPCIONES DE LA NAVEGACION
+
 let opcion1 = 1;
 let opcion2 = 2;
 let opcion3 = 3;
-let cuota1=1;
-let cuota2=2;
-let cuota3=9;
-let cuota4=12;
-let plan1= (10%100);
+let opcion4 = 4;
+
+//VARIABLES PORCENTAJE DE INTERES
+
+let cuota3 = (10/100);
+let cuota6 = (18/100);
+let cuota9 = (25/100);
+let cuota12 = (40/100);
+let totalFinanciado
+
 
 while(instruccion){
-    if(instruccion ==opcion1){
+    switch(instruccion){// MENU DE NAVEGACION
+        case 1:// OPCION Nº 1
         alert("SOLICITUD DE TURNO ACEPTADO");
         for(let i = 1;  i <=20 ; i++){
-            alert("Turno Nª" + i + "Nombre:" + nombre );
+            alert("   Turno Nª   "  + i +  "   Nombre:   " +  nombre );
             break;
         }
         break;
-    }else if(instruccion == opcion2 ){
-        alert("TURNO ANULADO SATISFACTORIAMENTE");
-    }else if(instruccion == opcion3){
+        case 2: // OPCION Nº 2
+            alert("TURNO CANCELADO SATISFACTORIAMENTE");
+            break;
+        case 3:// OPCION Nº 3 + CALCULO DE CUOTAS
         let cuota = parseFloat(prompt("Ingrese monto"));
-        let instruccion2=prompt("INGRESE CUOTAS A SIMULAR: 1) 3 CUOTAS  ; 2)  6 CUOTAS   ;  3) 9  CUOTAS   ;   4) 12  CUOTAS");
-        if(instruccion2==cuota1){
-           alert();
-        }
+        let instruccion2=prompt("INGRESE NUMERO DE CUOTAS: (3) CUOTAS; (6) CUOTAS;  (9) CUOTAS;  (12) CUOTAS");
+            switch(instruccion2){                
+                case "3":
+                    totalFinanciado =((cuota*cuota3) +cuota);
+                    alert(totalFinanciado / 3);
+                    break;
+                case "6":
+                    totalFinanciado =((cuota*cuota6) +cuota);
+                    alert(totalFinanciado / 6);
+                    break;
+                case "9":
+                    totalFinanciado =((cuota*cuota9) +cuota);
+                    alert(totalFinanciado / 9);
+                    break;
+                case "12":
+                    totalFinanciado =((cuota*cuota12) +cuota);
+                    alert(totalFinanciado / 12);
+                    break;
+                default: alert("Por favor, ingrese un número de cuotas valido.");
+            }
+        case 4:// FIN
         break;
     }
+    break;
 }
-
-
