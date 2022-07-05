@@ -54,7 +54,7 @@ function divisas(){
 
                     moneda =((monto*1)/dolar);
 
-                    alert(`Valor total es de ` + moneda +" dolares");
+                    alert(`Valor total es de ` + moneda.toFixed(2) +" dolares");
 
                     break;
 
@@ -62,7 +62,7 @@ function divisas(){
 
                     moneda =((monto*1)/euro);
 
-                    alert(`Valor total es de ` + moneda +" euros");
+                    alert(`Valor total es de ` + moneda.toFixed(2) +" euros");
 
                     break;
 
@@ -70,7 +70,7 @@ function divisas(){
 
                     moneda =((monto*1)/libra);
 
-                    alert(`Valor total es de ` + moneda +" libras");
+                    alert(`Valor total es de ` + moneda.toFixed(2) +" libras");
 
                     break;
 
@@ -78,7 +78,7 @@ function divisas(){
 
                     moneda =((monto*1)/chileno);
 
-                    alert(`Valor total es de ` + moneda +" pesos chilenos");
+                    alert(`Valor total es de ` + moneda.toFixed(2) +" pesos chilenos");
 
                     break;
 
