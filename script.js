@@ -31,9 +31,9 @@ let totalFinanciado
 //VARIABLES DE DIVISAS
 
 
-const dolar = 0.0079;
-const euro = 0.0076;
-const libra =0.0066;
+const dolar = 125.96;
+const euro = 131.42;
+const libra =640.14;
 const chileno = 7;
 
 let monto;
@@ -52,7 +52,7 @@ function divisas(){
 
                 case "1":
 
-                    moneda =(monto*dolar);
+                    moneda =((monto*1)/dolar);
 
                     alert(`Valor total es de ` + moneda +" dolares");
 
@@ -60,7 +60,7 @@ function divisas(){
 
                 case "2":
 
-                    moneda =(monto*euro);
+                    moneda =((monto*1)/euro);
 
                     alert(`Valor total es de ` + moneda +" euros");
 
@@ -68,7 +68,7 @@ function divisas(){
 
                 case "3":
 
-                    moneda =(monto*libra);
+                    moneda =((monto*1)/libra);
 
                     alert(`Valor total es de ` + moneda +" libras");
 
@@ -76,7 +76,7 @@ function divisas(){
 
                 case "4":
 
-                    moneda =(monto*chileno);
+                    moneda =((monto*1)/chileno);
 
                     alert(`Valor total es de ` + moneda +" pesos chilenos");
 
