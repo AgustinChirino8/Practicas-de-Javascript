@@ -1,42 +1,29 @@
+
 const resumen = [];
-
-
-let nombre =prompt(" BIENVENIDO A HOUSEBANK     Por Favor  Ingrese Nombre y Apellido");
-
-let instruccion = parseFloat(prompt("POR FAVOR SR.   "      + nombre +        "     SELECCIONE LA OPCION A REALIZAR:         1)   SOLICITUD DE TURNOS;"  + ""  +   "       2)   SIMULACION DE CAMBIO DE VALORES;" +""+  "      3)   SIMULACION DE PAGO EN CUOTAS;"  + "" + "      4)SALIR;"));
-
-
+//----------------------------------------------- 1ER INGRESO DE DATOS --------------------------------------------- //
+let nombre =prompt(" BIENVENIDO A HOUSEBANK , antes de continuar    Por Favor  Ingrese Nombre y Apellido");
+let instruccion = parseFloat(prompt(`POR FAVOR SR. ${nombre} \nSELECCIONE LA OPCION A REALIZAR:\n1)SOLICITUD DE TURNOS\n2)SIMULACION DE CAMBIO DE VALORES\n3)SIMULACION DE PAGO EN CUOTAS\n4)SALIR;`));
 let turno = 1;
 
+//------------------------------------------------ ARRAYS ----------------------------------------------//
 
-
-/*class resumen {
-    constructor(turno , nombre ){
-        this.id = turno;
-        thiss.nombre = 
+class Usuario {
+    constructor(instruccion , nombre ){
+        this.instruccion = instruccion;
+        this.nombre =  nombre;
     }
 }
-*/
-
-//const resumen = [nombre, instruccion,];
-
-
 
 //VARIABLES PORCENTAJE DE INTERES
 
 let cuota3 = (10/100);
-
 let cuota6 = (18/100);
-
 let cuota9 = (25/100);
-
 let cuota12 = (40/100);
-
 let totalFinanciado
 
 
 //VARIABLES DE DIVISAS
-
 
 const dolar = 125.96;
 const euro = 131.42;
@@ -44,14 +31,7 @@ const libra =640.14;
 const chileno = 7;
 
 let monto;
-
-
 let moneda ;
-//------------------------------------------------ ARRAYS ----------------------------------------------//
-
-
-
-
 
 
 //-------------------------------------------------- FUNCIONES------------------------------------------//
@@ -84,8 +64,6 @@ function divisas(){
 }
 
 //--------------------------------------------------- PRUEBAS ---------------------------------------------------------//
-
-
 
 
 
@@ -126,13 +104,46 @@ while(instruccion!=4){
             alert("Por favor ingrese un número válido")
             break;
     }
-    resumen.push(nombre , instruccion);
-    console.log(resumen)
+    resumen.push(new Usuario(instruccion,nombre));
+
+    //----------------------- 2DO INGRESO DE DATOS -------------------------- //
+
+
     nombre =prompt(" BIENVENIDO A HOUSEBANK     Por Favor  Ingrese Nombre y Apellido");
-    instruccion= parseFloat(prompt("POR FAVOR SR.   "      + nombre +        "     SELECCIONE LA OPCION A REALIZAR:         1)   SOLICITUD DE TURNOS;"  + ""  +   "       2)   SIMULACION DE CAMBIO DE VALORES;" +""+  "      3)   SIMULACION DE PAGO EN CUOTAS;"  + "" + "      4)SALIR;"));
+    instruccion = parseFloat(prompt(`POR FAVOR SR. ${nombre} \nSELECCIONE LA OPCION A REALIZAR:\n1)SOLICITUD DE TURNOS\n2)SIMULACION DE CAMBIO DE VALORES\n3)SIMULACION DE PAGO EN CUOTAS\n4)SALIR;`));
+
+
+    // ---------------------- PUSH DEL ARRAY ---------------------------------//
+    if(instruccion===4){
+        resumen.push(new Usuario(instruccion,nombre));
+    }
+};
+
+
+
+//----------------------------------------------------------  HISTORIAL DE USUARIOS ------------------------------------------------//
+
+
+
+let historial =parseFloat(prompt("desea ver el historial de los usuarios que ingresaron? \n1)SI \n2)NO"));
+
+if (historial ==1){
+    let opciones =parseFloat(prompt("Seleccione Historial de Busqueda. \n1)Usuarios que Solicitaron Turnos. \n2)Usuarios que Cambiaron divisas. \n3)Usuarios que simularon pagos en cuota"))
+    switch (opciones){
+        case 1:
+            console.log(resumen.filter(Usuario => Usuario.instruccion === 1 ));
+            alert("Historial en consola");
+            break;
+        case 2:
+            console.log(resumen.filter(Usuario => Usuario.instruccion === 2 ));
+            alert("Historial en consola");
+            break;
+        case 3:
+            console.log(resumen.filter(Usuario => Usuario.instruccion === 3 ));
+            alert("Historial en consola");
+            break;
+        }
 }
-
-
 
 
 
