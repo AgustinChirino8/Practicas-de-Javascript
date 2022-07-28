@@ -14,52 +14,40 @@
         <hr>
     </header>
     <article class="text-center">
-        <div id="Formulario" class="pb-5 p-5">
-            <h3 class="fs-3 pb-3 text-center pt-5">Antes de comenzar , por favor debe crear un <span class="text-primary">nuevo usuario</span></h3>
-            <form id="idForm">
+        <!---------------------------------- FORMULARIO ---------------------------------------------->
+        <div id="Formulario" class="pb-5 p-5 bg-dark m-lg-5">
+            <h3 class="fs-3 pb-3 text-center pt-5 text-white">Antes de comenzar , por favor debe crear un <br><span class="text-primary">nuevo usuario</span></h3>
+            <form id="idForm"class="p-5">
                 <div class="mb-3">
-                    <label for="exampleInputName" class="form-label"> Name </label>
+                    <label for="exampleInputName" class="form-label fs-4"> Name </label>
                     <input type="name" class="form-control" id="InputName">
-                    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                    <div id="emailHelp" class="form-text text-white">We'll never share your email with anyone else.</div>
                   </div>
                 <div class="mb-3">
-                  <label for="exampleInputEmail1" class="form-label">Email address</label>
+                  <label for="exampleInputEmail1" class="form-label fs-4">Email address</label>
                   <input type="email" class="form-control" id="InputEmail" aria-describedby="emailHelp">
-                  <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                  <div id="emailHelp" class="form-text text-white">We'll never share your email with anyone else.</div>
                 </div>
                 <div class="mb-3">
-                  <label for="exampleInputPassword1" class="form-label">Password</label>
-                  <input type="password" class="form-control" id="InputPassword">
+                  <label for="exampleInputPassword1" class="form-label fs-4">Password</label>
+                  <input type="password" class="form-control text-white" id="InputPassword">
                 </div>
                 <div class="mb-3 form-check">
-                  <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                  <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                  <input type="checkbox" class="form-check-input fs-4" id="exampleCheck1">
+                  <label class="form-check-label text-white" for="exampleCheck1">Check me out</label>
                 </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
             </form>
         </div>
-        <div id="divUsers" class="row gap-3">
+        <!------------------------------  BOTON DE SIMULACION N°1 --------------------------------------->
+        <h3 class="fs-3 pb-3 text-center pt-5">Una vez que haya completado el formulario , puede ver nuestro <span class="text-primary">Historial</span> de usuarios</h3>
+        <div id="divUsers pb-5">
             <button id="botonUsers" type="button" class="btn btn-outline-primary">Ver Usuarios</button>
         </div>
         <hr>
-        <h4 class="fs-3 pt-5">Housebank es una interaccion donde podras simular varias opciones ( solicitar turnos , Cambio de Divisas , Simulacion de pago en cuotas)</h4>
-        <br>
-        <br>
-        <h4 class="fs-3 pt-5">ADVERTIMOS! EL SIMULADOR CONTIENE <span class="text-danger"> PROMPTS </span> Y <span class="text-danger"> ALERTS </span></h4>
-        <br>
-        <br>
-        <h3 class="fs-3 pb-3 text-center text-primary pt-5">Desea Iniciar El Simulador?</h3>
-        <div id="Boton1"  class="boton pt-lg-5 pb-lg-5">
-            <button type="button" class="btn btn-outline-primary">Iniciar</button>
-        </div>
-        <br>
-        <br>
-        <h4 class="fs-3 pt-5">Una vez iniciada la simulacion , se habilita la disponibilidad de consultar el Historial de nuestros visitantes</h4>
-        <h3 class="fs-3 pb-3 text-center text-primary pt-5">Desea Consultar El Historial?</h3>
-        <div id="Boton2" class="boton pt-lg-5 pb-lg-5">
-            <button type="button" class="btn btn-outline-secondary">Ver Historial</button>
-        </div>
-        <div id="Registro">
+        <div>
+            <h2 class="text-center fs-2 text-primary pt-5 pb-5">DESEA INICIAR EL SIMULADOR?</h2>
+            <button id="botonSimulator" type="submit" class="btn btn-primary">Iniciar</button>
         </div>
     </article>
     <script src="./script.js" type="text/javascript"></script>
