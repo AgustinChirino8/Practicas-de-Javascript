@@ -18,18 +18,17 @@ const botonUsers = document.getElementById("botonUsers")
 
 form.addEventListener('submit' , (event) => {
     event.preventDefault()
-
     let username = document.getElementById("InputName").value
     let email = document.getElementById("InputEmail").value
     let password = document.getElementById("InputPassword").value
-
     const user = new users (username , email , password)
     followers.push(user)
-
+    localStorage.setItem('usuarios' , JSON.stringify(followers));
     console.log(followers)
-
     form.reset()
 })
+
+
 
 botonUsers.addEventListener('click' , () => {
     followers.forEach(user => {
@@ -50,3 +49,4 @@ const botonSimulator = document.getElementById("botonSimulator")
 botonSimulator.addEventListener('click' , () => {
     location.href="Simulador.html"
 })
+

@@ -307,13 +307,37 @@ function pagos (){
     result2Button.addEventListener('click', () =>{
        const instruccion4 = document.querySelector('input[name="duesBottom"]:checked').value;
           if (instruccion4 == 1){
-              totalFinanciado =((valor.value*cuota3) + valor.value);
-              console.log(totalFinanciado)
+              totalFinanciado = (valor.value*cuota3)
+              totalCuotas = totalFinanciado + valor.value
                 simulation3.innerHTML += `
                    <div class="pt-5">
-                     <h3>El valor de las cuotas es de ${totalFinanciado} mensuales </h3>
+                     <h3>El valor de las cuotas es de ${(totalCuotas/3).toFixed(2)} mensuales </h3>
                    </div>
                 `
+           }else if(instruccion4 ==2){
+              totalFinanciado = (valor.value*cuota6)
+              totalCuotas = totalFinanciado + valor.value
+                simulation3.innerHTML += `
+                   <div class="pt-5">
+                     <h3>El valor de las cuotas es de ${(totalCuotas/6).toFixed(2)} mensuales </h3>
+                   </div>
+                `
+           }else if(instruccion4 ==3){
+            totalFinanciado = (valor.value*cuota9)
+            totalCuotas = totalFinanciado + valor.value
+              simulation3.innerHTML += `
+                 <div class="pt-5">
+                   <h3>El valor de las cuotas es de ${(totalCuotas/9).toFixed(2)} mensuales </h3>
+                 </div>
+              `
+           }else if(instruccion4 ==4){
+            totalFinanciado = (valor.value*cuota12)
+            totalCuotas = totalFinanciado + valor.value
+              simulation3.innerHTML += `
+                 <div class="pt-5">
+                   <h3>El valor de las cuotas es de ${(totalCuotas/12).toFixed(2)} mensuales </h3>
+                 </div>
+              `
            }
        })
    })
