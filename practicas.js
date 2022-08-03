@@ -178,7 +178,7 @@ const option3 = document.getElementById('cuotasCheck').value= 3
 const formSim = document.getElementById('formSim')
 
 
-class simUsers {
+class SimUsers {
     constructor (nombre , options) {
         this.nombre = nombre;
         this.options = options;
@@ -217,7 +217,7 @@ const simulation2 = document.getElementById('simulacion2')
 function divisas(){
     simulation2.innerHTML += `
         <label type="radio"  for="exampleInputName" class="form-label fs-4"> Number </label>
-        <input type="number" value=  name="money" class="form-control" id="inputNumber">
+        <input type="number"   name="money" class="form-control" id="inputNumber">
         <div class="pt-5">
             <button id="sim2Button" type="submit" class="btn btn-primary">Next step</button>
         </div>
@@ -343,23 +343,26 @@ function pagos (){
    })
 }
 
+const cleanButtom = document.getElementById('cleanButtom')
+const cleanDiv = document.getElementById('cleanDiv')
+const endButtom = document.getElementById('endButtom')
 
 
 formSim.addEventListener ('submit' , (event) => {
     event.preventDefault()
     let nombre = document.getElementById('inputName').value
     options = document.querySelector('input[name="optionBottom"]:checked').value;
-    let newUsers = new simUsers (nombre , options)
+    let newUsers = new SimUsers (nombre , options)
     persons.push(newUsers)
     console.log(persons)
     const simulation1 = document.getElementById('simulacion1')
     if (options == 1){
-        const losUsuarios = simUsers => simUsers.options === 1
-        for(simUsers of persons){
+        const losUsuarios = SimUsers => SimUsers.options === 1
+        for(SimUsers of persons){
             simulation1.innerHTML += `
                 <div class="div-Padre">
                     <p>Solicitud de turno aceptado!</p>
-                    <p>Nombre : ${simUsers.nombre}
+                    <p>Nombre : ${SimUsers.nombre}
                     <p>Turno N°: ${turno++}
                 </div>
             `
@@ -370,6 +373,11 @@ formSim.addEventListener ('submit' , (event) => {
         pagos();
     }
     formSim.reset()
+    cleanButtom.addEventListener('click', ()=>{
+        simulation1.innerHTML = ``
+        simulation2.innerHTML =``
+        simulation3.innerHTML = ``
+    })
 })
 
 

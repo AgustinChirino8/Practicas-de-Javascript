@@ -14,6 +14,7 @@
         <hr>
     </header>
     <article class="text-center">
+        <!-- <button type="button" id="endButtom" class="btn btn-primary">Finalizar Simulador</button> -->
         <form id="formSim"class="p-5">
             <div class="mb-3 pt-5 pb-5">
                 <label type="number"  for="exampleInputName" class="form-label fs-4"> Name </label>
@@ -31,6 +32,10 @@
                 <input type="radio" value="3" name="optionBottom" class="form-check-input fs-4" id="cuotasCheck">
                 <label class="form-check-label text-primary fs-3" for="exampleCheck1">Simular pago en cuotas</label>
             </div>
+            <!-- <div class="mb-3 form-check pb-lg-5">
+                <input type="radio" value="4" name="optionBottom" class="form-check-input fs-4" id="endCheck">
+                <label class="form-check-label text-primary fs-3" for="exampleCheck1">Finalizar Simulacion</label>
+            </div> -->
             <button id="simButton" type="submit" class="btn btn-primary">Submit</button>
         </form>
         <div id="simulacion1">
@@ -38,6 +43,9 @@
         <div id="simulacion2">
         </div>
         <div id="simulacion3">
+        </div>
+        <div id="cleanDiv" class="pt-5">
+            <button type="button" id="cleanButtom" class="btn btn-secondary"> Borrar resultados</button>
         </div>
     </article>
     <script src="./practicas.js" type="text/javascript"></script>
