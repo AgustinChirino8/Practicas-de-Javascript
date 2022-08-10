@@ -1,3 +1,5 @@
+//------------------------- OBTENCION DE LAS VARIABLES ----------------------//
+
 const Boton1 = document.getElementById("Boton1")
 const Boton2 = document.getElementById("Boton2")
 const input1 = document.getElementById("input")
@@ -24,13 +26,13 @@ const botonUsers = document.getElementById("botonUsers")
 //------------------------------------------ EVENTO INGRESO DE DATOS ------------------------------------------ //
 
 
-form.addEventListener('submit' , (event) => {
-    event.preventDefault()
+form.addEventListener('submit' , (event) => { //SE CARGAN LOS DATOS , PARA LUEGO EXTRAERLOS 
+    event.preventDefault()//
     let username = document.getElementById("InputName").value
     let email = document.getElementById("InputEmail").value
     let password = document.getElementById("InputPassword").value
-    const user = new Users (username , email , password , option)
-    followers.push(user)
+    let persona = new Users (username , email , option)
+    followers.push(persona)//NUEVO USUARIO CARGADO AL ARRAY
     localStorage.setItem('usuarios' , JSON.stringify(followers));
     form.reset()
 })
@@ -76,9 +78,8 @@ const simulation2 = document.getElementById('simulacion2')
 //------------------------------------------ FUNCIONES ----------------------------------------------//
 
 
-
-
-function divisas(){
+function divisas(){//------------------- SIMULACION DE CAMBIO DIVISAS ----------------------------//
+    simulation2.innerHTML = "" //Para que no aparezca 2 veces
     simulation2.innerHTML += `
         <label type="radio"  for="exampleInputName" class="form-label fs-4"> Number </label>
         <input type="number"   name="money" class="form-control" id="inputNumber">
@@ -105,26 +106,26 @@ function divisas(){
                 <label class="form-check-label text-primary fs-3" for="exampleCheck1">a Libra</label>
             </div>
             <button id="result1Button" type="submit" class="btn btn-primary"> Get Results </button>
-    `
+    `//------ SELECCION DE MONEDA A CAMBIAR 
     const result1button = document.getElementById('result1Button')
     result1button.addEventListener('click' , () =>{
         const instruccion3 = document.querySelector('input[name="divBottom"]:checked').value;
-        if (instruccion3 == 1){
-            let moneda =((monto.value*1)/dolar);
+        if (instruccion3 == 1){//---- CONDICIONAL PARA EL CAMBIO DE VALOR
+            let moneda =((monto.value*1)/dolar);//  OPCION 1
             simulation2.innerHTML += `
                 <div class="pt-5">
                     <h3>El valor total es de ${moneda.toFixed(2)} dolares</h3>
                 </div>
             `
         }else if (instruccion3 == 2){
-            let moneda =((monto.value*1)/euro);
+            let moneda =((monto.value*1)/euro);//  OPCION 2
             simulation2.innerHTML += `
                 <div class="pt-5">
                     <h3>El valor total es de ${moneda.toFixed(2)} euros</h3>
                 </div>
             `
         }else if (instruccion3 == 3){
-            let moneda =((monto.value*1)/libra);
+            let moneda =((monto.value*1)/libra);// OPCION 3
             simulation2.innerHTML += `
                 <div class="pt-5">
                     <h3>El valor total es de ${moneda.toFixed(2)} libras</h3>
@@ -143,17 +144,19 @@ const simulation3 = document.getElementById('simulacion3')
 
 
 
-function pagos (){
+function pagos (){//---------------------------------- FUNCION DE PAGOS EN CUOTAS ----------------------------//
+    simulation3.innerHTML = "";
     simulation3.innerHTML += `
     <label type="number"  for="exampleInputName" class="form-label fs-4"> Number </label>
     <input type="number" name="dues"  class="form-control" id="inputNumber2">
     <div class="pt-5">
         <button id="sim3Button" type="submit" class="btn btn-primary">Next</button>
     </div>
-    `
+    `// INGRESO DEL VALOR (EN NUMEROS) 
     const sim3Button = document.getElementById('sim3Button')
-    let valor = document.getElementById("inputNumber2").value
-    sim3Button.addEventListener ('click' , () =>{
+    let valor = document.getElementById("inputNumber2")
+    console.log(valor)
+    sim3Button.addEventListener ('click' , () =>{//--------- EVENTO DE  SELECCION DE CUOTAS
         simulation3.innerHTML += `
             <h2 class="pt-5" >Por favos a continuacion seleccione la cantidad de cuotas a pagar </h2>
             <div class="mb-3 form-check">
@@ -175,35 +178,35 @@ function pagos (){
             <button id="resulta2Button" type="submit" class="btn btn-primary"> Get Results </button>
         `
     const result2Button = document.getElementById('resulta2Button')
-    result2Button.addEventListener('click', () =>{
+    result2Button.addEventListener('click', () =>{//----------- EVENTO CALCULO MATEMATICO DE LAS CUOTAS
        const instruccion4 = document.querySelector('input[name="duesBottom"]:checked').value;
-          if (instruccion4 == 1){
-              let totalFinanciado = (valor*cuota3)
-              let totalCuotas = totalFinanciado + valor
+          if (instruccion4 == 1){//--------------------------- OPCION 1
+              let totalFinanciado = (valor.value*cuota3)
+              let totalCuotas = totalFinanciado + parseFloat(valor.value)
                 simulation3.innerHTML += `
                    <div class="pt-5">
-                     <h3>El valor de las cuotas es de ${((totalFinanciado + valor) /3).toFixed(2)} mensuales </h3>
+                     <h3>El valor de las cuotas es de ${(totalCuotas /3).toFixed(2)} mensuales </h3>
                    </div>
                 `
-           }else if(instruccion4 ==2){
-              let totalFinanciado = (valor*cuota6)
-              let totalCuotas = totalFinanciado + valor
+           }else if(instruccion4 == 2){//------------------------ OPCION 2
+              let totalFinanciado = (valor.value*cuota6)
+              let totalCuotas = totalFinanciado + parseFloat(valor.value)
                 simulation3.innerHTML += `
                    <div class="pt-5">
                      <h3>El valor de las cuotas es de ${(totalCuotas/6).toFixed(2)} mensuales </h3>
                    </div>
                 `
-           }else if(instruccion4 ==3){
-            let totalFinanciado = (valor*cuota9)
-            let totalCuotas = totalFinanciado + valor
+           }else if(instruccion4 == 3){//-------------------------- OPCION 3
+            let totalFinanciado = (valor.value*cuota9)
+            let totalCuotas = totalFinanciado + parseFloat(valor.value)
               simulation3.innerHTML += `
                  <div class="pt-5">
                    <h3>El valor de las cuotas es de ${(totalCuotas/9).toFixed(2)} mensuales </h3>
                  </div>
               `
-           }else if(instruccion4 ==4){
+           }else if(instruccion4 == 4){//-------------------------- OPCION 4
             let totalFinanciado = (valor.value*cuota12)
-            let totalCuotas = totalFinanciado + valor
+            let totalCuotas = totalFinanciado + parseFloat(valor.value)
               simulation3.innerHTML += `
                  <div class="pt-5">
                    <h3>El valor de las cuotas es de ${(totalCuotas/12).toFixed(2)} mensuales </h3>
@@ -229,43 +232,50 @@ const cleanDiv = document.getElementById('cleanDiv')
 
 
 formSim.addEventListener ('submit' , (event) => {
-    event.preventDefault()
+    event.preventDefault() // ----------------------------- 1ERO SE CARGAN LOS DATOS
     let username = document.getElementById("InputName").value
     let email = document.getElementById("InputEmail").value
     let password = document.getElementById("InputPassword").value
-    option = document.querySelector('input[name="optionBottom"]:checked').value;
+    option = document.querySelector('input[name="optionBottom"]:checked').value; // --------------- SELECCIONAMOS LA SIMULACIONA A REALIZAR
     console.log(followers)
     form.reset()
-    if (option == option1 ){
+    if (option === option1){ //-------------------------- GESTION DE TURNO 
         const losUsuarios = Users => Users.option === 1
         for(Users of followers){
             simulation1.innerHTML += `
-                <div class="div-Padre">
+                <div id="simulacion1" class="div-Padre">
                     <p>Solicitud de turno aceptado!</p>
                     <p>Nombre : ${Users.username}
                     <p>Turno N°: ${turno++}
                 </div>
             `
         };
-    }else if(option == option2){
+    }else if(option == option2){//------------------------- CAMBIO DE DIVISAS
         divisas();
-    }else if(option == option3){
+    }else if(option == option3){//------------------------- PAGO EN CUOTAS
         pagos();
     }
-    const user = new Users (username , email , password , option)
-    followers.push(user)
-    localStorage.setItem('usuarios' , JSON.stringify(user.username));
-    localStorage.setItem('mail', JSON.stringify(user.email))
-    localStorage.setItem('opcion', JSON.stringify(user.option))
-    formSim.reset()
-    cleanButtom.addEventListener('click', ()=>{
+    let persona = new Users(username , email , password , option) //-------------- SE PUSHEA EL USUARIO AL ARRAY
+    followers.push(persona)
+    localStorage.setItem('usuarios' , JSON.stringify(persona.username));// ---- GUARDAMOS LOS DATOS INGRESADOS AL LOCALSTORAGE
+    localStorage.setItem('mail', JSON.stringify(persona.email))
+    localStorage.setItem('opcion', JSON.stringify(persona.option))
+    formSim.reset()// --------------- RESETEAMOS EL FORMULARIO PARA CARGAR NUEVOS DATOS
+    cleanButtom.addEventListener('click', ()=>{//--------- BORRAMOS LOS EVENTOS DE LAS SIMULACIONES PARA EMPEZAR DE NUEVO
         simulation1.innerHTML =``
         simulation2.innerHTML =``
         simulation3.innerHTML = ``
-        const history = JSON.parse(localStorage.getItem('usuarios'))
+        const history = JSON.parse(localStorage.getItem('usuarios'))// ------------ OBTENEMOS LOS VALORES INGRESADOS AL LOCALSTORAGE
         const mail = JSON.parse(localStorage.getItem('mail'))
         const passw = JSON.parse(localStorage.getItem('opcion'))
         console.log(history , mail , passw)
+        Swal.fire({
+            position: 'top-end',
+            icon: 'success',
+            title: 'Simulacion Finalizada',
+            showConfirmButton: false,
+            timer: 1500
+          })
     })
 })
    
