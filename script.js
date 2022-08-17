@@ -64,6 +64,85 @@ let totalFinanciado
 
 //VARIABLES DE DIVISAS
 
+const divDolar = document.getElementById('divDolar')
+
+fetch("https://criptoya.com/api/dolar")
+    .then(response => response.json())
+    .then(({oficial, solidario, blue, mep, ccb, ccl}) => {
+        divDolar.innerHTML = ""
+        divDolar.innerHTML +=`
+           <div>
+           <h2 class="pb-5 text-center">Cotizaciones del Dolar</h2>
+             <table class="table table-dark table-striped p-5">
+                <thead>
+                 <tr>
+                   <th scope="col">Oficial</th>
+                   <th scope="col">Blue</th>
+                   <th scope="col">CCB</th>
+               </tr>
+               </thead>
+               <tbody>
+                 <tr>
+                   <td>${oficial}</td>
+                   <td>${blue}</td>
+                   <td>${ccb}</td>
+                 </tr>
+                 <tr>
+                   <th>Solidario</td>
+                   <th>MEP</th>
+                   <th>CCL</th>
+                 </tr>
+                 <tr>
+                   <td>${solidario}</td>
+                   <td>${mep}</td>
+                   <td>${ccl}</td>
+                 </tr>
+               </tbody>
+             </table>
+           </div>
+        `
+    })
+
+setInterval(() => {
+    fetch("https://criptoya.com/api/dolar")
+    .then(response => response.json())
+    .then(({oficial, solidario, blue, mep, ccb, ccl}) => {
+        divDolar.innerHTML = ""
+        divDolar.innerHTML +=`
+           <div>
+           <h2 class="pb-5 text-primary">Cotizaciones del Dolar</h2>
+             <table class="table table-dark table-striped p-5">
+                <thead>
+                 <tr>
+                   <th scope="col">Oficial</th>
+                   <th scope="col">Blue</th>
+                   <th scope="col">CCB</th>
+               </tr>
+               </thead>
+               <tbody>
+                 <tr>
+                   <td>${oficial}</td>
+                   <td>${blue}</td>
+                   <td>${ccb}</td>
+                 </tr>
+                 <tr>
+                   <th>Solidario</td>
+                   <th>MEP</th>
+                   <th>CCL</th>
+                 </tr>
+                 <tr>
+                   <td>${solidario}</td>
+                   <td>${mep}</td>
+                   <td>${ccl}</td>
+                 </tr>
+               </tbody>
+             </table>
+           </div>
+        `
+    })
+},20000)
+
+
 const dolar = 125.96;
 const euro = 131.42;
 const libra =640.14;
@@ -278,6 +357,8 @@ formSim.addEventListener ('submit' , (event) => {
           })
     })
 })
+
+
    
     
 

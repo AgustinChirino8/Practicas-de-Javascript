@@ -17,15 +17,21 @@
         <h1 class="fs-1 pb-3 text-center text-primary">Bienvenido a Housebank</h1>
         <hr>
     </header>
-    <article class="text-center">
+    <article class="text-center m-4 p-5">
         <h2>Housebank es una interaccion virtual donde podra simular un sistema de gestion de <span class="text-primary">turnos</span> , cambio de <span class="text-primary">divisas</span> y una simulacion de pagos realizados en <span class="text-primary">cuotas</span></h2>
         <div class="d-flex justify-content-evenly -bpt-5 pb-5 p-5 ">
-            <img width="5%" src="./img/presupuesto.png" alt="gestion-turnps">
+            <img width="5%" src="./img/presupuesto.png" alt="gestion-turnos">
             <img width="5%" src="./img/desarrollar.png" alt="cambio-divisas">
             <img width="5%" src="./img/riesgo.png" alt="pago-cuotas">
         </div>
+        <div class="d-grid row">
+            <h2 class="text-start pt-5 pb-4 text-primary">Cotizaciones de Monedas</h2>
+            <iframe class="pb-5" src="https://es.widgets.investing.com/live-currency-cross-rates?theme=darkTheme&hideTitle=true&roundedCorners=true" width="100%" height="410" frameborder="0" allowtransparency="true" marginwidth="0" marginheight="0"></iframe><div class="poweredBy" style="font-family: Arial, Helvetica, sans-serif;">   
+            <div id="divDolar" class="pt-5 d-flex p-lg-5 justify-content-center">
+            </div>
+        </div>
         <!---------------------------------- FORMULARIO ---------------------------------------------->
-        <div id="Formulario" class="pb-5 p-5 bg-dark m-lg-5">
+        <div id="Formulario" class="pb-5 p-5 bg-dark m-lg-5 justify-content-end">
             <h3 class="fs-3 pb-3 text-center pt-5 text-white">Antes de comenzar , por favor debe crear un <br><span class="text-primary">nuevo usuario</span></h3>
             <form id="idForm"class="p-5">
                 <div class="mb-3">
@@ -70,8 +76,8 @@
       </div>
       <div id="simulacion3">
       </div>
-      <div id="cleanDiv" class="pt-5">
-          <button type="button" id="cleanButtom" class="btn btn-secondary">Finalizar Simulacion</button>
+      <div id="cleanDiv" class="pt-5 pb-5">
+          <button type="button" id="cleanButtom" class="btn btn-secondary text-danger">Finalizar Simulacion</button>
       </div>
     </article>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
