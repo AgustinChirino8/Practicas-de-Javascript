@@ -7,6 +7,7 @@ const input1 = document.getElementById("input")
 const form = document.getElementById("idForm")
 
 //----------------------------------------- CONSTRUCTOR DEL ARRAY ----------------------------------------- //
+
 class Users {
     constructor(username , email , password , option) {
         this.username = username
@@ -15,6 +16,8 @@ class Users {
         this.option = option
     }
 }
+
+
 //------------------------------------------- ARRAY ------------------------------------------------------- //
 const followers = []
 
